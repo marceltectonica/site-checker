@@ -12,9 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "fast-xml-parser": "^4.1.1",
-    "lighthouse": "^10.0.0",
     "lighthouse-batch": "^8.1.1",
-    "puppeteer": "^19.6.3",
+    "node-fetch": "^3.3.0",
     "yargs": "^17.6.2"
   }
 }
