@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "fast-xml-parser": "^4.1.1",
+    "json2csv": "^6.0.0-alpha.2",
     "lighthouse-batch": "^8.1.1",
     "node-fetch": "^3.3.0",
     "yargs": "^17.6.2"
