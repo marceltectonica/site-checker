@@ -18,12 +18,18 @@ async function checker(){
   const seo = argv.seo ? argv.seo : 0.8;
   const speed = argv.speed ? argv.speed : 0.8;
   const access = argv.access ? argv.access : 0.8;
+  const limit = argv.limit ? argv.limit : null;
   const parser = new XMLParser();
   const url = argv.url;
   const response = await fetch(url);
   const xml = await response.text();
   let urlsXml = parser.parse(xml);
-  const urlsList = urlsXml.urlset.url.map(item => item.loc).slice(1,10);  
+  let urlsList = []
+  if(limit){
+    urlsList = urlsXml.urlset.url.map(item => item.loc).slice(1,limit);  
+  }else{
+    urlsList = urlsXml.urlset.url.map(item => item.loc)
+  }
   try {
       execSync(`lighthouse-batch -s ${urlsList}`); // Executes this on the command line to run the performance test
       console.log('done summary');
